@@ -1,13 +1,14 @@
 import * as React from 'react';
-import Card from '../Card';
+import { IItem } from '../../interfaces/Item';
 
 interface IItemTodoProps {
+  data: IItem
 }
 
-const ItemTodo: React.FunctionComponent<IItemTodoProps> = (props) => {
+const ItemTodo: React.FunctionComponent<IItemTodoProps> = ({data}) => {
   return (
       <>
-      <h1>item</h1>
+        <p>{data.text}</p>
       </>
   );
 };
