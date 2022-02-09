@@ -1,15 +1,19 @@
 import * as React from 'react';
 import { IItem } from '../../interfaces/Item';
+import CheckButton from '../CheckButton';
+import { ItemContainer, Text } from './styles';
 
 interface IItemTodoProps {
-  data: IItem
+  data: IItem;
+  toggle: any;
 }
 
-const ItemTodo: React.FunctionComponent<IItemTodoProps> = ({data}) => {
+const ItemTodo: React.FunctionComponent<IItemTodoProps> = ({data, toggle}) => {
   return (
-      <>
-        <p>{data.text}</p>
-      </>
+      <ItemContainer>
+        <CheckButton value={data.done} toggle={toggle(data._id)}/>
+        <Text>{data.text}</Text>
+      </ItemContainer>
   );
 };
 

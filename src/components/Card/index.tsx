@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { IItem } from '../../interfaces/Item';
+import CheckButton from '../CheckButton';
 import ItemTodo from '../ItemTodo';
-import { CardContent, Title } from './styles';
+import { CardContent, ItemContainer, Title } from './styles';
 
 interface ICardProps {
 }
@@ -9,7 +10,7 @@ interface ICardProps {
 const mockArray: IItem[] = [
   {
     _id: 1,
-    text: 'Este es el primer to-do',
+    text: 'Este es el primer to-doEste es el primer to-doEste es el primer to-doEste es el primer to-doEste es el primer to-do',
     date: new Date(),
     done: false
   },
@@ -33,16 +34,24 @@ const mockArray: IItem[] = [
   }
 ]
 
+const changeState = (_id: number): void => {
+  const index = mockArray.findIndex(item => item._id === _id);
+  mockArray[index].done = !mockArray[index].done;
+  console.log('_id :>> ', _id);
+}
+
 const Card: React.FunctionComponent<ICardProps> = (props) => {
   return (
       <CardContent>
         <Title>Add your task</Title>
+        <ItemContainer>
         {
           mockArray.length && 
           mockArray.map((item: IItem ) => {
-            return <ItemTodo key={item._id} data={item}/>
+            return <ItemTodo key={item._id} data={item} toggle={changeState}/>
           })
         }
+        </ItemContainer> 
       </CardContent>
   );
 };
