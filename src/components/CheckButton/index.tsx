@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { Image } from './styles';
-
+import useData from '../../hooks/useData'
+import { IItem } from '../../interfaces/Item';
 
 interface ICheckButtonProps {
-    value: boolean;
+    value: IItem;
     toggle: any
 }
 
 const CheckButton: React.FunctionComponent<ICheckButtonProps> = ({ value, toggle }) => {
-    return (
-        <button onClick={toggle}>
-            <Image src={value ? "../../assets/icons/checked.png" : "../../assets/icons/not-checked.png"} />
-        </button>
-        
-    );
+    const {data, changeState, getItem} = useData();
+
+    const item = getItem(value._id)
+    console.log('item :>> ', item);
+    return ( <Image onClick={() => changeState(item._id)} src={item.done ? "../../assets/icons/checked.png" : "../../assets/icons/not-checked.png"} />);
 };
 
 export default CheckButton;
