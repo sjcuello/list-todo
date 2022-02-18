@@ -31,11 +31,13 @@ const mockArray: IItem[] = [
 export const useData = () => {
   const [data, setData] = useState(mockArray)
   const changeState = (_id: number): void => {
-    const dataCopy = data;
-    const index = dataCopy.findIndex(item => item._id === _id);
-    dataCopy[index].done = !dataCopy[index].done;
-    setData(dataCopy);
-    console.log('_id :>> ', _id);
+    const newData = data.map(item => {
+      if(item._id === _id){
+        item.done =  !item.done;
+      }
+      return item
+    });
+    setData(newData);
   }
   const getItem = (_id: number): IItem => {
     return data.find(item => item._id === _id)!

@@ -12,7 +12,6 @@ const ItemTodo: React.FunctionComponent<IItemTodoProps> = ({data, toggle}) => {
   return (
       <ItemContainer>
         <CheckButton value={data} toggle={() => toggle(data._id)}/>
-        <p>{data.done ? 'done' : 'not done'}</p>
         <Text>{data.text}</Text>
       </ItemContainer>
   );

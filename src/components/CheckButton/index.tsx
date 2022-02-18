@@ -9,10 +9,9 @@ interface ICheckButtonProps {
 }
 
 const CheckButton: React.FunctionComponent<ICheckButtonProps> = ({ value, toggle }) => {
-    const {data, changeState, getItem} = useData();
+    const {changeState, getItem} = useData();
 
     const item = getItem(value._id)
-    console.log('item :>> ', item);
     return ( <Image onClick={() => changeState(item._id)} src={item.done ? "../../assets/icons/checked.png" : "../../assets/icons/not-checked.png"} />);
 };
 
