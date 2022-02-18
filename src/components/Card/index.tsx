@@ -2,7 +2,8 @@ import React from 'react';
 import { IItem } from '../../interfaces/Item';
 import ItemTodo from '../ItemTodo';
 import { CardContent, ItemContainer, Title } from './styles';
-import useData from '../../hooks/useData'
+import useData from '../../hooks/useData';
+import Button from '@mui/material/Button';
 interface ICardProps {
 }
 
@@ -20,6 +21,7 @@ const Card: React.FunctionComponent<ICardProps> = (props) => {
           })
         }
         </ItemContainer> 
+        <Button variant="contained">Add your task</Button>
       </CardContent>
   );
 };

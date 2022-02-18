@@ -1,12 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Layout from './components/Layout';
+import Typography from '@mui/material/Typography';
 
 function App() {
   return (
     <div className="App">
-      <Layout/>
+      <Typography variant="body2" color="text.secondary" align="center">
+        <Layout/>
+      </Typography>
     </div>
   );
 }
