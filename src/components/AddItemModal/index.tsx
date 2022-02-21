@@ -1,15 +1,26 @@
 import * as React from 'react';
 import Modal from '@mui/material/Modal';
-import { Box } from '@mui/material';
-import { style } from './style';
-
+import { Input, Button } from '@mui/material';
+import { BoxModal } from './style';
+import { useData } from '../../hooks/useData';
+import { useState } from 'react';
 interface IAddItemModalProps {
   open: boolean,
   handleClose: any
 }
 
 const AddItemModal: React.FunctionComponent<IAddItemModalProps> = ({open, handleClose}) => {
+  const { addItem } = useData()
 
+  const addNewItem = () => {
+    addItem(value);
+    handleClose();
+  }
+
+  const [value, setValue] = useState('')
+  const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>)=> {
+    setValue(e.target.value);
+ }
   return (
     <Modal
     open={open}
@@ -17,9 +28,10 @@ const AddItemModal: React.FunctionComponent<IAddItemModalProps> = ({open, handle
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
   >
-    <Box sx={style}>
-      <h1>modal text example</h1>
-    </Box>
+    <BoxModal>
+      <Input value={value} type='text' onChange={handleOnchange}></Input>
+      <Button variant="contained" onClick={() => addNewItem()}>Confirm</Button>
+    </BoxModal>
   </Modal>
   );
 };

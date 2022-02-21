@@ -29,7 +29,13 @@ const mockArray: IItem[] = [
 ];
 
 export const useData = () => {
-  const [data, setData] = useState(mockArray)
+  
+  const [data, setData] = useState(mockArray);
+  
+  const getNewIndex = () => {
+    return data.length + 1
+  }
+
   const changeState = (_id: number): void => {
     const newData = data.map(item => {
       if(item._id === _id){
@@ -39,10 +45,22 @@ export const useData = () => {
     });
     setData(newData);
   }
+
   const getItem = (_id: number): IItem => {
     return data.find(item => item._id === _id)!
   }
-  return { data, setData, changeState, getItem }
+
+  const addItem = (value: string) => {
+    const newItem: IItem = {
+      _id: getNewIndex(),
+      text: value,
+      date: new Date(),
+      done: false
+    }
+    
+    setData(data => [...data, newItem])
+  }
+  return { data, setData, changeState, getItem, addItem }
 }
 
 export default useData;

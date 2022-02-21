@@ -13,6 +13,8 @@ const Card: React.FunctionComponent<ICardProps> = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  
   return (
       <CardContent>
         <Title>Add your task</Title>
