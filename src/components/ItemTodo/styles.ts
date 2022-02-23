@@ -17,3 +17,8 @@ export const Text = styled.p`
     overflow: hidden;
     text-overflow: ellipsis;
 `
+
+export const Image = styled.img`
+    height: 3rem;
+    width: 3rem;
+`

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IItem } from '../../interfaces/Item';
-import CheckButton from '../CheckButton';
-import { ItemContainer, Text } from './styles';
+
+import { ItemContainer, Text, Image } from './styles';
 
 interface IItemTodoProps {
   data: IItem;
@@ -11,7 +11,7 @@ interface IItemTodoProps {
 const ItemTodo: React.FunctionComponent<IItemTodoProps> = ({data, toggle}) => {
   return (
       <ItemContainer>
-        <CheckButton value={data} toggle={() => toggle(data._id)}/>
+        <Image onClick={() => toggle(data._id)} src={data.done ? "../../assets/icons/checked.png" : "../../assets/icons/not-checked.png"} />
         <Text>{data.text}</Text>
       </ItemContainer>
   );
