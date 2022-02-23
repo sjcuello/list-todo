@@ -56,7 +56,7 @@ const useLocalStorage = (itemLocalStorage: string): [IItem[], (items: IItem[]) =
 //       date: new Date(),
 //       done: false
 //     }
-    
+
 //     setData(data => [...data, newItem])
 //   }
 export default useLocalStorage
