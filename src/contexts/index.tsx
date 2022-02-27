@@ -1,5 +1,6 @@
 import * as React from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
+import { IItem } from '../interfaces/Item';
 
 const DataContext = React.createContext<any>(null);
 
@@ -16,11 +17,27 @@ function DataProvider(props: any) {
     saveTodos(newData)
   }
 
+  const getNewIndex = () => {
+    return data.length + 1
+  }
+
+  const addItem = (value: string) => {
+    const newItem: IItem = {
+      _id: getNewIndex(),
+      text: value,
+      date: new Date(),
+      done: false
+    }
+
+    saveTodos([...data, newItem])
+  }
+
   return (
     <DataContext.Provider value={{
       data,
       saveTodos,
-      changeState
+      changeState,
+      addItem
     }}>
       {props.children}
     </DataContext.Provider>

@@ -48,15 +48,4 @@ const useLocalStorage = (itemLocalStorage: string): [IItem[], (items: IItem[]) =
     return [data, saveTodos]
 }
 
-// TO-DO
-// const addItem = (value: string) => {
-//     const newItem: IItem = {
-//       _id: getNewIndex(),
-//       text: value,
-//       date: new Date(),
-//       done: false
-//     }
-
-//     setData(data => [...data, newItem])
-//   }
 export default useLocalStorage
