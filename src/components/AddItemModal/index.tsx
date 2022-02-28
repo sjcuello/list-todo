@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Modal from '@mui/material/Modal';
-import { Input, Button } from '@mui/material';
-import { BoxModal } from './style';
+import { Button } from '@mui/material';
+import { BoxModal, InputText } from './style';
 import { useState } from 'react';
 import { DataContext } from '../../contexts';
 interface IAddItemModalProps {
@@ -11,16 +11,20 @@ interface IAddItemModalProps {
 
 const AddItemModal: React.FunctionComponent<IAddItemModalProps> = ({ open, handleClose }) => {
   const { addItem } = useContext(DataContext)
+  const [value, setValue] = useState('');
 
   const addNewItem = () => {
-    addItem(value);
-    handleClose();
+    if(value){
+      addItem(value);
+      handleClose();
+      setValue('');
+    }
   }
-
-  const [value, setValue] = useState('')
+  
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   }
+
   return (
     <Modal
       open={open}
@@ -29,7 +33,7 @@ const AddItemModal: React.FunctionComponent<IAddItemModalProps> = ({ open, handl
       aria-describedby="modal-modal-description"
     >
       <BoxModal>
-        <Input value={value} type='text' onChange={handleOnchange}></Input>
+        <InputText value={value} type='text' onChange={handleOnchange}></InputText>
         <Button variant="contained" onClick={() => addNewItem()}>Confirm</Button>
       </BoxModal>
     </Modal>

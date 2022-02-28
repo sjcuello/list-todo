@@ -7,12 +7,13 @@ export const ItemContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: #D7D7D7;
     border-radius: .5rem;
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.35); 
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.05);
 `
 
 export const Text = styled.p`
-    font-size: 2rem;
+    font-size: 1.5rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

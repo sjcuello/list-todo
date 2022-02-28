@@ -14,14 +14,13 @@ export const CardContent = styled.div`
     padding: 2rem 3rem;
 `
 export const Title = styled.h1`
-    font-size: 4rem;
-    font-weight: 500;
-    color: #111; 
+    font-size: 2rem;
+    font-weight: 600;
     font-family: 'Open Sans Condensed', sans-serif; 
     font-weight: 700; 
     line-height: 4rem; 
     margin: 0 0 0; 
-    padding: 20px 30px; 
+    padding: 10px 30px; 
     text-align: center; 
     text-transform: uppercase;
 `
@@ -29,4 +28,8 @@ export const Title = styled.h1`
 export const ItemContainer = styled.div`
     height: 100%;
     width: 100%;
+    max-height: 80vh;
+    overflow: scroll;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
 `
