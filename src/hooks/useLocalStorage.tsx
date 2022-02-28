@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IItem } from "../interfaces/Item";
 
 const mockArray: IItem[] = [
