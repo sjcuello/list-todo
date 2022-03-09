@@ -6,10 +6,10 @@ interface ICreatePanelProps {
 
 const CreatePanel: React.FunctionComponent<ICreatePanelProps> = (props) => {
   return (
-      <>
-      <Card/>
-      <Card/>
-      </>
+    <>
+      <Card />
+      <Card />
+    </>
   );
 };
 

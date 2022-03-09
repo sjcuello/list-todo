@@ -1,7 +1,8 @@
+import { Box } from '@mui/system'
 import styled  from 'styled-components'
 
 
-export const CardContent = styled.div`
+export const CardContent = styled(Box)`
     background-color: white;
     width: 35vw;
     height: 80vh;
@@ -13,7 +14,7 @@ export const CardContent = styled.div`
     flex-direction: column;
     padding: 2rem 3rem;
 `
-export const Title = styled.h1`
+export const Title = styled(Box)`
     font-size: 2rem;
     font-weight: 600;
     font-family: 'Open Sans Condensed', sans-serif; 
@@ -25,7 +26,7 @@ export const Title = styled.h1`
     text-transform: uppercase;
 `
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled(Box)`
     height: 100%;
     width: 100%;
     max-height: 80vh;

@@ -1,7 +1,7 @@
-import { Input } from '@mui/material'
+import { Box, Input } from '@mui/material'
 import styled  from 'styled-components'
 
-export const BoxModal = styled.div`
+export const BoxModal = styled(Box)`
     position: absolute;
     top: 50%;
     left: 50%;
