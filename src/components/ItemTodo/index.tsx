@@ -4,6 +4,8 @@ import { IItem } from '../../interfaces/Item';
 import { DataContext } from '../../contexts';
 import { ItemContainer, Image } from './styles';
 import { Typography } from '@mui/material';
+import checked from '../../assets/icons/checked.png'
+import notChecked from '../../assets/icons/not-checked.png'
 
 interface IItemTodoProps {
   data: IItem;
@@ -11,9 +13,10 @@ interface IItemTodoProps {
 
 const ItemTodo: React.FunctionComponent<IItemTodoProps> = ({ data }) => {
   const { changeState } = useContext(DataContext);
+  
   return (
     <ItemContainer>
-      <Image onClick={() => changeState(data._id)} src={data.done ? "../../assets/icons/checked.png" : "../../assets/icons/not-checked.png"} />
+      <Image onClick={() => changeState(data._id)} src={data.done ? checked : notChecked} />
       <Typography paragraph={true} >{data.text}</Typography>
     </ItemContainer>
   );
